@@ -8,7 +8,7 @@ async function sendWelcomeEmail(email, passcode) {
     const res = await axios.post(
       "https://api.resend.com/emails",
       {
-        from: "welcome@yourdomain.com", // custom sender
+        from: "onboarding@resend.dev", // custom sender
         to: email,
         subject: "🎉 Welcome to the Waitlist",
         html: `
@@ -22,7 +22,7 @@ async function sendWelcomeEmail(email, passcode) {
       },
       {
         headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_RESEND_API_KEY}`,
+          Authorization: `Bearer re_Y8cQdW6f_BzDxsh8XAoCBDBfrj6LT4u3Q`,
           "Content-Type": "application/json",
         },
       }
