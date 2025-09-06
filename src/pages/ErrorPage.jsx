@@ -10,7 +10,7 @@ export const ErrorPage = ({ error, resetErrorBoundary }) => {
     >
       <h1 className="font-bold text-5xl">Something went wrong :)</h1>
       <img
-        src={Logo}
+        // src={Logo}
         alt="Logo"
         className=" w-24 aspect-square object-contain mix-blend-multiply animate-pulse"
       ></img>
