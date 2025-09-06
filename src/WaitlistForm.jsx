@@ -188,7 +188,7 @@ export default function WaitlistForm() {
             <img 
               src="https://waitlist-bay-kappa.vercel.app/logo.png" 
               alt="Yagsē" 
-              className="h-32 md:h-32 object-contain filter drop-shadow-2xl"
+              className="h-48 md:h-48 object-contain filter drop-shadow-2xl"
             />
           </motion.div>
 
