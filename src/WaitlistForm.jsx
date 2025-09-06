@@ -3,36 +3,36 @@ import { db } from "./firebase";
 import { collection, addDoc } from "firebase/firestore";
 import axios from "axios";
 
-async function sendWelcomeEmail(email, passcode) {
-  try {
-    const res = await axios.post(
-      "https://api.resend.com/emails",
-      {
-        from: "onboarding@resend.dev", // custom sender
-        to: email,
-        subject: "🎉 Welcome to the Waitlist",
-        html: `
-          <div style="font-family: Arial, sans-serif; padding: 20px;">
-            <h1>Welcome!</h1>
-            <p>Thanks for joining our waitlist . Your unique passcode is:</p>
-            <h2 style="color: #4F46E5;">${passcode}</h2>
-            <p>Keep it safe — you’ll need it laternn!</p>
-          </div>
-        `,
-      },
-      {
-        headers: {
-          Authorization: `Bearer re_Y8cQdW6f_BzDxsh8XAoCBDBfrj6LT4u3Q`,
-          "Content-Type": "application/json",
-        },
-      }
-    );
+// async function sendWelcomeEmail(email, passcode) {
+//   try {
+//     const res = await axios.post(
+//       "/api/send-email",
+//       {
+//         from: "onboarding@resend.dev", // custom sender
+//         to: email,
+//         subject: "🎉 Welcome to the Waitlist",
+//         html: `
+//           <div style="font-family: Arial, sans-serif; padding: 20px;">
+//             <h1>Welcome!</h1>
+//             <p>Thanks for joining our waitlist . Your unique passcode is:</p>
+//             <h2 style="color: #4F46E5;">${passcode}</h2>
+//             <p>Keep it safe — you’ll need it laternn!</p>
+//           </div>
+//         `,
+//       },
+//       {
+//         headers: {
+//           Authorization: `Bearer re_Y8cQdW6f_BzDxsh8XAoCBDBfrj6LT4u3Q`,
+//           "Content-Type": "application/json",
+//         },
+//       }
+//     );
 
-    console.log("✅ Email sent:", res.data);
-  } catch (error) {
-    console.error("❌ Email failed:", error.response?.data || error.message);
-  }
-}
+//     console.log("✅ Email sent:", res.data);
+//   } catch (error) {
+//     console.error("❌ Email failed:", error.response?.data || error.message);
+//   }
+// }
 function generatePasscode() {
   return Math.floor(100000 + Math.random() * 900000).toString();
 }
@@ -57,8 +57,12 @@ export default function WaitlistForm() {
       });
 
       // 2. Send Email
-      await sendWelcomeEmail(email, passcode);
-
+      await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, passcode }),
+      });
+      
       setMessage("✅ Check your inbox for your passcode!");
     } catch (err) {
       console.error(err);
