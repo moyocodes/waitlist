@@ -16,20 +16,20 @@ export default async function handler(req, res) {
         to: email,
         subject: "💎 Welcome to Yagso — Your Exclusive Passcode",
         html: `
-   <div style="font-family:'Helvetica Neue',Arial,sans-serif;
+    <div style="font-family:'Helvetica Neue',Arial,sans-serif;
                 background:linear-gradient(135deg, #ffffff 0%, #f0fdf4 50%, #ecfdf5 100%);
                 min-height:100vh;
-                padding:60px 20px;
+                padding:30px 10px;
                 color:#111827;">
         
         <!-- Main Content Container -->
-        <div style="max-width:600px;margin:0 auto;text-align:center;">
+        <div style="max-width:400px;margin:0 auto;text-align:center;">
             
             <!-- Logo Section -->
-            <div style="margin-bottom:50px;">
+            <div style="margin-bottom:30px;">
                 <img src="https://waitlist-bay-kappa.vercel.app/logo.png" 
                      alt="Yagso Logo" 
-                     style="max-width:120px;height:auto;margin-bottom:20px;" />
+                     style="max-width:100px;height:auto;margin-bottom:10px;" />
                 <div style="height:2px;
                            width:80px;
                            background:linear-gradient(90deg, #065f46, #047857);

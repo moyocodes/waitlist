@@ -109,7 +109,7 @@ export default function WaitlistForm() {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="text-6xl md:text-7xl font-light bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent mb-8"
             >
-              Welcome to Yagsē
+              Welcome to Yagso
             </motion.h1>
 
             <motion.p
@@ -187,7 +187,7 @@ export default function WaitlistForm() {
           >
             <img 
               src="https://waitlist-bay-kappa.vercel.app/logo.png" 
-              alt="Yagsē" 
+              alt="Yagso" 
               className="h-48 md:h-48 object-contain filter drop-shadow-2xl"
             />
           </motion.div>
