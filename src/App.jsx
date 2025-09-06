@@ -17,12 +17,12 @@ function App() {
           index: true,
           element: (
             <Suspense fallback={<LoadingHelper />}>
-              <Index />
+              <WaitlistForm />
             </Suspense>
           ),
         },
- {
-       path: "/email",
+        {
+          path: "/email",
           element: (
             <Suspense fallback={<LoadingHelper />}>
               <WaitlistForm />
