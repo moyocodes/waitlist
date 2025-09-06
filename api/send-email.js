@@ -26,18 +26,18 @@ export default async function handler(req, res) {
           #ecfdf5 100%
         );
         min-height: 100vh;
-        padding: 30px 10px;
+        padding: 20px 8px;
         color: #111827;
       "
     >
       <!-- Main Content Container -->
-      <div style="max-width: 400px; margin: 0 auto; text-align: center">
+      <div style="max-width: 600px; margin: 0 auto; text-align: center">
         <!-- Logo Section -->
-        <div style="margin-bottom: 30px">
+        <div style="margin-bottom: 35px">
           <img
             src="https://waitlist-bay-kappa.vercel.app/logo.png"
             alt="Yagso Logo"
-            style="max-width: 100px; height: auto; margin-bottom: 10px"
+            style="max-width: 120px; height: auto; margin-bottom: 10px"
           />
           <div
             style="
@@ -55,7 +55,7 @@ export default async function handler(req, res) {
         <div style="margin-bottom: 60px">
           <h1
             style="
-              font-size: 42px;
+              font-size: 35px;
               font-weight: 300;
               color: #065f46;
               margin: 0 0 24px 0;
@@ -66,9 +66,10 @@ export default async function handler(req, res) {
             Welcome to Yagso
           </h1>
 
+        
           <p
             style="
-              font-size: 18px;
+              font-size: 15px;
               color: #6b7280;
               line-height: 1.7;
               margin: 0;
@@ -82,7 +83,7 @@ export default async function handler(req, res) {
         </div>
 
         <!-- Passcode Section -->
-        <div style="margin: 50px auto; max-width: 320px">
+        <div style="margin: 30px auto; max-width: 320px">
           <div
             style="
               background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
@@ -97,7 +98,7 @@ export default async function handler(req, res) {
               style="
                 font-size: 14px;
                 color: #065f46;
-                margin: 0 0 12px 0;
+                margin: 0 0 8px 0;
                 font-weight: 600;
                 text-transform: uppercase;
                 letter-spacing: 1px;
@@ -108,22 +109,22 @@ export default async function handler(req, res) {
 
             <div
               style="
-                font-size: 32px;
+                font-size: 24px;
                 font-weight: 700;
                 color: #065f46;
                 letter-spacing: 8px;
-                margin: 8px 0;
+                margin: 6px 0;
                 font-family: 'Courier New', monospace;
               "
             >
-              123456
+            ${passcode}
             </div>
 
             <p
               style="
                 font-size: 12px;
                 color: #6b7280;
-                margin: 12px 0 0 0;
+                margin: 8px 0 0 0;
                 font-style: italic;
               "
             >
@@ -133,16 +134,16 @@ export default async function handler(req, res) {
         </div>
 
         <!-- Call to Action -->
-        <div style="margin: 60px 0">
+        <div style="margin: 40px 0">
           <a
             href="https://waitlist-bay-kappa.vercel.app/"
             style="
               display: inline-block;
-              padding: 18px 48px;
+              padding: 15px 40px;
               background: linear-gradient(135deg, #065f46 0%, #047857 100%);
               color: #ffffff;
               text-decoration: none;
-              border-radius: 50px;
+              border-radius: 20px;
               font-size: 16px;
               font-weight: 600;
               letter-spacing: 0.5px;
@@ -172,7 +173,7 @@ export default async function handler(req, res) {
               #d1d5db,
               transparent
             );
-            margin: 60px auto;
+            margin: 40px auto;
             width: 200px;
           "
         ></div>
@@ -183,16 +184,16 @@ export default async function handler(req, res) {
             background: rgba(6, 95, 70, 0.03);
             border: 1px solid rgba(6, 95, 70, 0.1);
             border-radius: 12px;
-            padding: 30px;
-            margin: 40px 0;
+            padding: 20px;
+            margin: 30px 0;
             text-align: left;
             max-width: 500px;
-            margin: 40px auto;
+            margin: 30px auto;
           "
         >
           <h3
             style="
-              font-size: 18px;
+              font-size: 15px;
               color: #065f46;
               margin: 0 0 16px 0;
               font-weight: 600;
@@ -202,47 +203,47 @@ export default async function handler(req, res) {
             What Happens Next?
           </h3>
 
-          <div style="display: flex; align-items: flex-start; margin: 12px 0">
+          <div style="display: flex; align-items: flex-start; margin: 8px 0">
             <span
               style="
                 color: #065f46;
-                font-size: 16px;
+                font-size: 13px;
                 margin-right: 12px;
                 font-weight: bold;
               "
               >1.</span
             >
-            <span style="color: #4b5563; font-size: 14px; line-height: 1.5"
+            <span style="color: #4b5563; font-size: 12px; line-height: 1.5"
               >Use your access code to unlock exclusive collections</span
             >
           </div>
 
-          <div style="display: flex; align-items: flex-start; margin: 12px 0">
+          <div style="display: flex; align-items: flex-start; margin: 8px 0">
             <span
               style="
                 color: #065f46;
-                font-size: 16px;
+                font-size: 13px;
                 margin-right: 12px;
                 font-weight: bold;
               "
               >2.</span
             >
-            <span style="color: #4b5563; font-size: 14px; line-height: 1.5"
+            <span style="color: #4b5563; font-size: 12px; line-height: 1.5"
               >Browse our curated luxury jewelry pieces</span
             >
           </div>
 
-          <div style="display: flex; align-items: flex-start; margin: 12px 0">
+          <div style="display: flex; align-items: flex-start; margin: 8px 0">
             <span
               style="
                 color: #065f46;
-                font-size: 16px;
+                font-size: 13px;
                 margin-right: 12px;
                 font-weight: bold;
               "
               >3.</span
             >
-            <span style="color: #4b5563; font-size: 14px; line-height: 1.5"
+            <span style="color: #4b5563; font-size: 12px; line-height: 1.5"
               >Receive priority notifications for new arrivals</span
             >
           </div>
@@ -253,8 +254,9 @@ export default async function handler(req, res) {
       <div
         style="
           text-align: center;
-          margin-top: 80px;
-          padding-top: 40px;
+          margin-top: 40px;
+          padding-top: 30px;
+          padding-bottom: 20px;
           border-top: 1px solid rgba(6, 95, 70, 0.1);
         "
       >
@@ -263,7 +265,7 @@ export default async function handler(req, res) {
         </p>
 
         <p style="font-size: 12px; color: #9ca3af; margin: 0; line-height: 1.5">
-          © 2025 Yagso. All rights reserved.<br />
+          © ${new Date().getFullYear()}  Yagso. All rights reserved.<br />
           You received this email because you requested exclusive access to our
           collection.
         </p>
