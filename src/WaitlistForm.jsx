@@ -60,6 +60,7 @@ export default function WaitlistForm() {
   if (success) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-white via-green-50/30 to-emerald-50/50 relative overflow-hidden">
+      
         {/* Success Sparkles */}
         {sparkles.map((i) => (
           <motion.div
@@ -188,7 +189,7 @@ export default function WaitlistForm() {
             <img 
               src="https://waitlist-bay-kappa.vercel.app/logo.png" 
               alt="Yagso" 
-              className="h-48 md:h-48 object-contain filter drop-shadow-2xl"
+              className="h-32 md:h-48 object-contain filter drop-shadow-2xl"
             />
           </motion.div>
 
