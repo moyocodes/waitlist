@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     const response = await axios.post(
       "https://api.resend.com/emails",
       {
-        from: "welcome@yourdomain.com",
+        from: "onboarding@resend.dev",
         to: email,
         subject: "🎉 Welcome to the Waitlist",
         html: `
