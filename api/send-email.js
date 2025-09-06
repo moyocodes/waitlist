@@ -32,7 +32,7 @@ export default async function handler(req, res) {
       <!-- TITLE -->
       <h1 style="font-size:28px;color:#b8860b;margin-bottom:14px;font-weight:700;">Welcome to Yagso ✨</h1>
       <p style="font-size:16px;color:#555;line-height:1.6;margin-bottom:28px;">
-        Thank you for joining our waitlist 💎 <br/>
+        Thank you for joining our website launch 💎 <br/>
         Here’s your exclusive access passcode:
       </p>
 
@@ -61,7 +61,7 @@ export default async function handler(req, res) {
     <!-- FOOTER -->
     <p style="margin-top:40px;font-size:12px;color:#777;">
       © ${new Date().getFullYear()} Yagso. All rights reserved.<br/>
-      You received this email because you signed up for our waitlist.
+      You received this email because you signed up for our website launch.
     </p>
   </div>
 `,
