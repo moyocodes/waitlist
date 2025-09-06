@@ -134,7 +134,7 @@ export default function WaitlistForm() {
               }}
               className="px-12 py-4 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white text-lg font-medium rounded-full hover:shadow-2xl transition-all duration-500 transform hover:scale-105"
             >
-              Join Another Email
+              Join With Another Email
             </motion.button>
           </motion.div>
         </div>
@@ -176,14 +176,14 @@ export default function WaitlistForm() {
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="flex-1 flex flex-col items-center justify-center text-center px-8 py-16"
+          className="flex-1 flex flex-col items-center justify-center text-center px-2 py-4"
         >
           {/* Logo */}
           <motion.div
             initial={{ scale: 0, rotate: -45 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ delay: 0.5, duration: 1, ease: "backOut" }}
-            className="mb-16"
+            className="mb-3"
           >
             <img 
               src="https://waitlist-bay-kappa.vercel.app/logo.png" 
