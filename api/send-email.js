@@ -14,7 +14,7 @@ export default async function handler(req, res) {
       {
         from: "onboarding@resend.dev",
         to: email,
-        subject: "💎 Welcome to Yagso — Your Exclusive Passcode",
+        subject: "Welcome to Yagso — Your Exclusive Passcode",
         html: `
   <head>
     <meta charset="UTF-8">

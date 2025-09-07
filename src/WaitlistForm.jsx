@@ -1,7 +1,4 @@
 import { useState } from "react";
-import { db } from "./firebase";
-import { collection, addDoc } from "firebase/firestore";
-import { motion, AnimatePresence } from "framer-motion";
 import {
   Mail,
   CheckCircle,
@@ -59,75 +56,57 @@ export default function WaitlistForm() {
 
   if (success) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-white via-green-50/30 to-emerald-50/50 relative overflow-hidden">
-      
+      <div className="min-h-screen relative overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source
+              src="https://waitlist-bay-kappa.vercel.app/video.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/60 via-emerald-800/50 to-emerald-900/70"></div>
+        </div>
+
         {/* Success Sparkles */}
         {sparkles.map((i) => (
-          <motion.div
+          <div
             key={i}
-            className="absolute"
-            initial={{
-              opacity: 0,
-              scale: 0,
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-            }}
-            animate={{
-              opacity: [0, 1, 0],
-              scale: [0, 1, 0],
-              rotate: [0, 180, 360],
-            }}
-            transition={{
-              duration: 2,
-              delay: i * 0.1,
-              repeat: Infinity,
-              repeatDelay: 3,
+            className="absolute z-20 animate-bounce"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${i * 0.1}s`,
+              animationDuration: "2s",
             }}
           >
-            <Star className="w-3 h-3 text-emerald-400" />
-          </motion.div>
+            <Star className="w-3 h-3 text-emerald-300" />
+          </div>
         ))}
 
-        <div className="min-h-screen flex items-center justify-center p-8">
-          <motion.div
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1, ease: "backOut" }}
-            className="text-center max-w-2xl"
-          >
-            <motion.div
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ delay: 0.3, duration: 1, ease: "backOut" }}
-              className="w-32 h-32 mx-auto mb-12 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full flex items-center justify-center shadow-2xl"
-            >
+        <div className="min-h-screen flex items-center justify-center p-8 relative z-10">
+          <div className="text-center max-w-2xl transform transition-all duration-1000 ease-out">
+            <div className="w-32 h-32 mx-auto mb-12 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full flex items-center justify-center shadow-2xl">
               <CheckCircle className="w-16 h-16 text-white" />
-            </motion.div>
+            </div>
 
-            <motion.h1
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-6xl md:text-7xl font-light bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent mb-8"
-            >
+            <h1 className="text-6xl md:text-7xl font-light bg-gradient-to-r from-white to-emerald-100 bg-clip-text text-transparent mb-8">
               Welcome to Yagso
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.9, duration: 0.8 }}
-              className="text-xl text-gray-600 mb-12 leading-relaxed"
-            >
-              Your exclusive passcode has been sent. 
+            <p className="text-xl text-emerald-100 mb-12 leading-relaxed">
+              Your exclusive passcode has been sent.
               <br />
               Prepare to discover extraordinary luxury.
-            </motion.p>
+            </p>
 
-            <motion.button
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 1.2, duration: 0.8 }}
+            <button
               onClick={() => {
                 setSuccess(false);
                 setEmail("");
@@ -136,281 +115,219 @@ export default function WaitlistForm() {
               className="px-12 py-4 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white text-lg font-medium rounded-full hover:shadow-2xl transition-all duration-500 transform hover:scale-105"
             >
               Join With Another Email
-            </motion.button>
-          </motion.div>
+            </button>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-green-50/20 to-emerald-50/30 relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source
+            src="https://waitlist-bay-kappa.vercel.app/video.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-emerald-900/20 to-black/40"></div>
+      </div>
+
       {/* Floating Gems */}
       {sparkles.slice(0, 15).map((i) => (
-        <motion.div
+        <div
           key={i}
-          className="absolute opacity-10"
-          initial={{
-            x: Math.random() * (typeof window !== "undefined" ? window.innerWidth : 1200),
-            y: Math.random() * (typeof window !== "undefined" ? window.innerHeight : 800),
-          }}
-          animate={{
-            x: Math.random() * (typeof window !== "undefined" ? window.innerWidth : 1200),
-            y: Math.random() * (typeof window !== "undefined" ? window.innerHeight : 800),
-            rotate: [0, 360],
-          }}
-          transition={{
-            duration: Math.random() * 20 + 20,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "linear",
+          className="absolute opacity-20 z-10 animate-pulse"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            animationDelay: `${i * 0.2}s`,
+            animationDuration: `${20 + Math.random() * 10}s`,
           }}
         >
-          <Gem className="w-6 h-6 text-emerald-400" />
-        </motion.div>
+          <Gem className="w-6 h-6 text-emerald-300" />
+        </div>
       ))}
 
       {/* Main Content */}
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col relative z-10">
         {/* Header Section */}
-        <motion.div
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="flex-1 flex flex-col items-center justify-center text-center px-2 py-4"
+        <div
+          className="flex-1 flex flex-col items-center justify-center text-center px-2 py-4 opacity-0 animate-fade-in"
+          style={{ animationDelay: "0.5s", animationFillMode: "forwards" }}
         >
           {/* Logo */}
-          <motion.div
-            initial={{ scale: 0, rotate: -45 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ delay: 0.5, duration: 1, ease: "backOut" }}
-            className="mb-3"
-          >
-            <img 
-              src="https://waitlist-bay-kappa.vercel.app/logo.png" 
-              alt="Yagso" 
+          <div className="mb-3 transform transition-all duration-1000 ease-out">
+            <img
+              src="https://waitlist-bay-kappa.vercel.app/logo.png"
+              alt="Yagso"
               className="h-32 md:h-48 object-contain filter drop-shadow-2xl"
             />
-          </motion.div>
+          </div>
 
           {/* Main Heading */}
-          <motion.h1
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.8, duration: 1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-light text-gray-800 mb-8 leading-tight"
-          >
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-white mb-8 leading-tight drop-shadow-2xl">
             Exclusive
             <br />
-            <span className="bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-emerald-300 to-emerald-500 bg-clip-text text-transparent">
               Collection
             </span>
-          </motion.h1>
+          </h1>
 
           {/* Subtitle */}
-          <motion.p
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 1.1, duration: 1 }}
-            className="text-xl md:text-2xl text-gray-600 mb-16 max-w-3xl leading-relaxed"
-          >
+          <p className="text-xl md:text-2xl text-emerald-100 mb-16 max-w-3xl leading-relaxed drop-shadow-lg">
             Be among the first to discover our most coveted pieces.
             <br />
             Limited access. Unlimited luxury.
-          </motion.p>
+          </p>
 
           {/* CTA Button */}
-          <motion.button
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 1.4, duration: 0.8, ease: "backOut" }}
+          <button
             onClick={() => setShowForm(true)}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-12 py-5 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white text-lg font-medium rounded-full shadow-2xl hover:shadow-emerald-200 transition-all duration-500 relative overflow-hidden group"
+            className="px-12 py-5 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white text-lg font-medium rounded-full shadow-2xl hover:shadow-emerald-200/30 transition-all duration-500 relative overflow-hidden group transform hover:scale-105"
           >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-              initial={{ x: "-100%" }}
-              animate={{ x: "300%" }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                repeatDelay: 2,
-                ease: "linear",
-              }}
-            />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <span className="relative z-10 flex items-center space-x-3">
               <span>Request Exclusive Access</span>
               <Gem className="w-5 h-5" />
             </span>
-          </motion.button>
-        </motion.div>
+          </button>
+        </div>
 
         {/* Form Overlay - Full Screen */}
-        <AnimatePresence>
-          {showForm && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.6 }}
-              className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-emerald-900/95 to-emerald-800/90 backdrop-blur-xl"
+        {showForm && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-emerald-900/95 to-emerald-800/90 backdrop-blur-xl animate-fade-in">
+            {/* Close button */}
+            <button
+              onClick={() => setShowForm(false)}
+              className="absolute top-8 right-8 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white text-2xl font-light transition-all duration-300"
             >
-              {/* Close button */}
-              <motion.button
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.3 }}
-                onClick={() => setShowForm(false)}
-                className="absolute top-8 right-8 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white text-2xl font-light transition-all duration-300"
-              >
-                ×
-              </motion.button>
+              ×
+            </button>
 
-              <div className="max-w-lg w-full mx-auto px-8">
-                <motion.div
-                  initial={{ y: 50, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.2, duration: 0.8 }}
-                  className="text-center mb-12"
-                >
-                  <h2 className="text-4xl md:text-5xl font-light text-white mb-6">
-                    Join Our Elite Circle
-                  </h2>
-                  <p className="text-lg text-emerald-100 leading-relaxed">
-                    Enter your email to receive your exclusive access code and be notified of our most precious releases.
-                  </p>
-                </motion.div>
-
-                <motion.form
-                  initial={{ y: 30, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.4, duration: 0.8 }}
-                  onSubmit={handleSubmit}
-                  className="space-y-8"
-                >
-                  <div className="relative">
-                    <motion.div
-                      animate={focusedInput ? { scale: 1.02 } : { scale: 1 }}
-                      transition={{ duration: 0.3 }}
-                      className="relative"
-                    >
-                      <div className="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
-                        <Mail className={`w-6 h-6 transition-colors duration-300 ${
-                          focusedInput ? 'text-emerald-400' : 'text-emerald-200'
-                        }`} />
-                      </div>
-
-                      <input
-                        type="email"
-                        placeholder="your@email.com"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        onFocus={() => setFocusedInput(true)}
-                        onBlur={() => setFocusedInput(false)}
-                        className="w-full pl-16 pr-6 py-5 bg-white/10 border-2 border-emerald-200/30 rounded-full focus:border-emerald-300 focus:bg-white/20 focus:outline-none transition-all duration-300 text-white placeholder-emerald-200 text-lg backdrop-blur-sm"
-                        required
-                      />
-
-                      <motion.div
-                        initial={{ width: "0%" }}
-                        animate={{ width: focusedInput ? "100%" : "0%" }}
-                        className="absolute -bottom-1 left-0 h-1 bg-gradient-to-r from-emerald-400 to-emerald-300 rounded-full"
-                      />
-                    </motion.div>
-                  </div>
-
-                  <motion.button
-                    type="submit"
-                    disabled={loading || !email}
-                    whileHover={{ scale: loading ? 1 : 1.02 }}
-                    whileTap={{ scale: loading ? 1 : 0.98 }}
-                    className="w-full py-5 bg-gradient-to-r from-white to-emerald-50 text-emerald-800 font-semibold rounded-full shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-emerald-200/50 text-lg relative overflow-hidden"
-                  >
-                    <AnimatePresence mode="wait">
-                      {loading ? (
-                        <motion.div
-                          key="loading"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          className="flex items-center justify-center space-x-3"
-                        >
-                          <Loader2 className="w-6 h-6 animate-spin" />
-                          <span>Securing Your Access...</span>
-                        </motion.div>
-                      ) : (
-                        <motion.div
-                          key="submit"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          className="flex items-center justify-center space-x-3"
-                        >
-                          <span>Reserve My Exclusive Access</span>
-                          <motion.div
-                            animate={{ x: [0, 5, 0] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                          >
-                            →
-                          </motion.div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </motion.button>
-
-                  <AnimatePresence>
-                    {error && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="flex items-center justify-center space-x-2 text-red-300 bg-red-900/30 p-4 rounded-2xl backdrop-blur-sm"
-                      >
-                        <AlertCircle className="w-5 h-5" />
-                        <span>{error}</span>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.form>
-
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.8, duration: 0.8 }}
-                  className="text-center mt-8 text-emerald-200 text-sm"
-                >
-                  <p>
-                    By joining, you agree to receive exclusive updates about our luxury collections.
-                    <br />
-                    Your privacy is as precious as our jewelry.
-                  </p>
-                </motion.div>
+            <div className="max-w-lg w-full mx-auto px-8">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl md:text-5xl font-light text-white mb-6">
+                  Join Our Elite Circle
+                </h2>
+                <p className="text-lg text-emerald-100 leading-relaxed">
+                  Enter your email to receive your exclusive access code and be
+                  notified of our most precious releases.
+                </p>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+
+              <form onSubmit={handleSubmit} className="space-y-8">
+                <div className="relative">
+                  <div
+                    className={`relative transition-all duration-300 ${
+                      focusedInput ? "scale-105" : "scale-100"
+                    }`}
+                  >
+                    <div className="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
+                      <Mail
+                        className={`w-6 h-6 transition-colors duration-300 ${
+                          focusedInput ? "text-emerald-400" : "text-emerald-200"
+                        }`}
+                      />
+                    </div>
+
+                    <input
+                      type="email"
+                      placeholder="your@email.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      onFocus={() => setFocusedInput(true)}
+                      onBlur={() => setFocusedInput(false)}
+                      className="w-full pl-16 pr-6 py-5 bg-white/10 border-2 border-emerald-200/30 rounded-full focus:border-emerald-300 focus:bg-white/20 focus:outline-none transition-all duration-300 text-white placeholder-emerald-200 text-lg backdrop-blur-sm"
+                      required
+                    />
+
+                    <div
+                      className={`absolute -bottom-1 left-0 h-1 bg-gradient-to-r from-emerald-400 to-emerald-300 rounded-full transition-all duration-300 ${
+                        focusedInput ? "w-full" : "w-0"
+                      }`}
+                    ></div>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading || !email}
+                  className="w-full py-5 bg-gradient-to-r from-white to-emerald-50 text-emerald-800 font-semibold rounded-full shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-emerald-200/50 text-lg relative overflow-hidden hover:scale-105 disabled:hover:scale-100"
+                >
+                  {loading ? (
+                    <div className="flex items-center justify-center space-x-3">
+                      <Loader2 className="w-6 h-6 animate-spin" />
+                      <span>Securing Your Access...</span>
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-center space-x-3">
+                      <span>Reserve My Exclusive Access</span>
+                      <span className="animate-pulse">→</span>
+                    </div>
+                  )}
+                </button>
+
+                {error && (
+                  <div className="flex items-center justify-center space-x-2 text-red-300 bg-red-900/30 p-4 rounded-2xl backdrop-blur-sm animate-fade-in">
+                    <AlertCircle className="w-5 h-5" />
+                    <span>{error}</span>
+                  </div>
+                )}
+              </form>
+
+              <div className="text-center mt-8 text-emerald-200 text-sm">
+                <p>
+                  By joining, you agree to receive exclusive updates about our
+                  luxury collections.
+                  <br />
+                  Your privacy is as precious as our jewelry.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-10 right-10 opacity-20">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        >
-          <Gem className="w-16 h-16 text-emerald-400" />
-        </motion.div>
+      <div className="absolute top-10 right-10 opacity-30 z-20">
+        <div className="animate-spin" style={{ animationDuration: "30s" }}>
+          <Gem className="w-16 h-16 text-emerald-300" />
+        </div>
       </div>
 
-      <div className="absolute bottom-10 left-10 opacity-30 z-10">
-        <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+      <div className="absolute bottom-10 left-10 opacity-40 z-20">
+        <div
+          className="animate-spin"
+          style={{ animationDuration: "25s", animationDirection: "reverse" }}
         >
-          <Star className="w-12 h-12 text-emerald-400" />
-        </motion.div>
+          <Star className="w-12 h-12 text-emerald-300" />
+        </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in {
+          animation: fade-in 0.6s ease-out forwards;
+        }
+      `}</style>
     </div>
   );
 }
