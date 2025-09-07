@@ -116,7 +116,7 @@ const handleSubmit = async (e) => {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-6xl md:text-7xl font-light bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent mb-8"
+              className="text-5xl md:text-6xl font-light bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent mb-8"
             >
               Welcome to Yagso
             </motion.h1>
@@ -125,7 +125,7 @@ const handleSubmit = async (e) => {
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.9, duration: 0.8 }}
-              className="text-xl text-gray-600 mb-12 leading-relaxed"
+              className="text-lg text-gray-600 mb-12 leading-relaxed"
             >
               Your exclusive passcode has been sent. 
               <br />
@@ -141,7 +141,7 @@ const handleSubmit = async (e) => {
                 setEmail("");
                 setShowForm(false);
               }}
-              className="px-12 py-4 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white text-lg font-medium rounded-full hover:shadow-2xl transition-all duration-500 transform hover:scale-105"
+              className="px-10 py-4 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white text-md font-small rounded-full hover:shadow-2xl transition-all duration-500 transform hover:scale-105"
             >
               Join With Another Email
             </motion.button>
@@ -197,7 +197,7 @@ const handleSubmit = async (e) => {
             <img 
               src="https://waitlist-bay-kappa.vercel.app/logo.png" 
               alt="Yagso" 
-              className="h-28 md:h-48 object-contain filter drop-shadow-2xl"
+              className="h-32 md:h-48 object-contain filter drop-shadow-2xl"
             />
           </motion.div>
 
@@ -220,7 +220,7 @@ const handleSubmit = async (e) => {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 1.1, duration: 1 }}
-            className="text-l md:text-xl text-gray-600 mb-8 max-w-2xl leading-relaxed"
+            className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl leading-relaxed"
           >
             Be among the first to discover our most coveted pieces.
             <br />

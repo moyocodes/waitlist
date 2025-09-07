@@ -116,7 +116,7 @@ export default async function handler(req, res) {
                     
                     <!-- Logo Section -->
                     <tr>
-                        <td align="center" style="padding-bottom: 35px;">
+                        <td align="center" style="padding-bottom: 15px;">
                             <img src="https://waitlist-bay-kappa.vercel.app/logo.png" 
                                  alt="Yagso Logo" 
                                  style="max-width: 120px; height: auto; display: block; margin-bottom: 10px;" 
@@ -127,7 +127,7 @@ export default async function handler(req, res) {
                     
                     <!-- Welcome Message -->
                     <tr>
-                        <td align="center" style="padding-bottom: 40px;">
+                        <td align="center" style="padding-bottom: 20px;">
                             <h1 class="header-title" style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 35px; font-weight: 300; color: #065f46; margin: 0 0 20px 0; line-height: 1.2; letter-spacing: -0.5px;">
                                 Welcome to Yagso
                             </h1>
@@ -140,7 +140,7 @@ export default async function handler(req, res) {
                     <!-- Passcode Section -->
                     <tr>
                         <td align="center">
-                            <div class="passcode-container" style="margin: 30px auto; max-width: 320px;">
+                            <div class="passcode-container" style="margin: 20px auto; max-width: 320px;">
                                 <div class="passcode-box" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 3px solid #065f46; border-radius: 16px; padding: 32px 24px; box-shadow: 0 10px 40px rgba(6, 95, 70, 0.15);">
                                     <p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; color: #065f46; margin: 0 0 8px 0; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">
                                         Your Access Code
